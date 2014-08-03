@@ -1,8 +1,12 @@
 #ifndef PERSONAS_H
-#define PERSONAS_H
+#define __PERSONAS_H
 #include "fecha.h"
-#define TAM 10
-#include <String.h>
+#define __TAM 10
+#include <cstdio>
+#include <string.h>
+#include <iostream>
+#include "fecha.h"
+
 
 class personas{
 private:

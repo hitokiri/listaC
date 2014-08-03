@@ -1,6 +1,9 @@
 #ifndef LISTA_H
-#define LISTA_H
+#define __LISTA_H
 #include "Nodo.h"
+#include "estudiantes.h"
+
+
 class Lista{
 private:
 	pnodo primero;

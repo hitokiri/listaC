@@ -1,6 +1,9 @@
 #ifndef ESTUDIANTES_H
-#define ESTUDIANTES_H
+#define __ESTUDIANTES_H
 #include "personas.h"
+#include "Lista.h"
+#include "fecha.h"
+
 
 class estudiantes: public personas{
 private:
@@ -23,5 +26,6 @@ public:
 			
 			
 		};
-		
+	}	
+}
 #endif

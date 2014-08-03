@@ -1,5 +1,6 @@
 #ifndef FECHA_H
-#define FECHA_H
+#define __FECHA_H
+
 
 class fecha{
 private:
@@ -21,6 +22,6 @@ public:
 		return true;
 	}
 
-
+}
 #endif
 	

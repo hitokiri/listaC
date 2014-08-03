@@ -1,6 +1,12 @@
 #include <iostream>
 using namespace std;
 #include "Lista.h"
+#include "estudiantes.h"
+#include "personas.h"
+#include "Nodo.h"
+#include "fecha.h"
+
+
 int main(){
 	Lista lst;
 	lst.Agregar(new estudiantes);

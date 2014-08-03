@@ -1,7 +1,9 @@
 #ifndef NODO_H
-#define NODO_H
+#define __NODO_H
 #include <stdlib.h>
-#include "personas.h"
+#include "estudiantes.h"
+
+
 class Nodo{
 private:
 	estudiantes Valor;
