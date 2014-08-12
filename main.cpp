@@ -1,149 +1,98 @@
 #include <iostream>
+#include <cstdlib>
+
 using namespace std;
+#include "Fecha.h"
+#include "Persona.h"
+#include "Trabajador.h"
 #include "Lista.h"
-#include "estudiantes.h"
-#include "personas.h"
-#include "Nodo.h"
-#include "fecha.h"
 
 
-int main(){
-	Lista lst;
-	lst.Agregar(new estudiantes);
-	lst.Buscar(new estudiantes);
-	lst.Modificar(new estudiantes);
-	lst.Eliminar(new estudiantes);
-	lst.Mostrar(new estudiantes);
-	pnodo elemento = lst.Buscar(new estudiantes);
-	if (elemento){
-		cout << elemento->getValor();
-	}
-	else{
-		cout << "No estaba en la lista\n";
-	}
-	
-	return 0;
-}
-int op;
-fecha fe;
-estudiantes est;
-Lista lst;
-persona p;
+Trabajador pedirdatos();
+int main()
+{
 
-do{
-	system("cls");
-	
-	cout << "*************************************\n";
-	cout << "*           MENU DE OPCIONES        *\n";
-	cout << "*************************************\n";
-	cout << "* 1. Agregar Estudiantes            *\n";
-	cout << "* 2. Buscar                         *\n";
-	cout << "* 3. Modificar Lista de Estudiantes *\n";
-	cout << "* 4. Eliminar Estudiantes           *\n";
-	cout << "* 5. Mostrar                        *\n";
-	cout << "* 6. Salir                          *\n";
-	cout << "*************************************\n";
-	cout << "\nDigite su opcion: ";
-	cin >> op;
-	
-	switch(op){
-	case 1:
-		cout << "\nAGREGAR ESTUDIANTE: \n\n" ;
-		fe = pedir();
-		traa = pedirdato();
-		lst.Insertar(est);
-		cod++;
-		break;
-		
-	case 2:
-		cout << "\nBUSCAR ESTUDIANTE \n\n";
-		cout << "Digite el apellido del Estudiante: ";
-		cin >> Apellido;
-		system("cls");
-		int op;
-		
-		if(op==1){
-			lst.buscar1(Apellido);
-			cout << "Apellido:\t\t";
-			traa.mostrarnombresmayusculas();
-			cout << endl;
-			traa.getPromedio();
-			void MostrarFecha();
-			cout << "Fecha de Nacimiento: ";
-			fe.MostrarFecha();
-			
-		}
-		else{
-			lst.buscar1(Nombre);
-			cout << "Nombres:\t\t";
-			traa.mostrarnombresminusculas();
-			cout << endl;
-			traa.getPromedio();
-			void MostrarFecha();
-			cout << "Fecha de Nacimiento: ";
-			fe.MostrarFecha();
-			cout << "\n" << "\n";
-			fe.MostrarCalendario();
-			cout << "\n";
-		}
-		break;
-		
-	case 3:
-		cout << "\Modificar \n\n";
-		lst.Mostrar();
-		break;
-		
-	case 4:
-		cout << "ELIMINAR" ;
-		int e;
-		cout << "A quien quiere eliminar: ";
-		cin >> e;
-		lst.EliminarEnmedio(e);	
-		
-	case 5:
-		cout << "\nMOSTRAR LISTA" << endl;
-		this->lst.Mostrar();
-		break;	
-	}
-	
-	system("pause");
-	
-}while(op!=6);
+    /*Fecha f(2,6,1996);
+    Trabajador tr("jonathan","hernandez",f,100.6);
+    char *cod = tr.Codigo();
+    cout << "El codigo es "<< cod;
+    //f.calendario();
+    //f.MostrarFecha();
 
-return 0;
+    */system("pause");
+    Trabajador tr;
+    char *codigo;
+    int opc=0;
+    Lista lis;
+    do{
+            system("cls");
+        cout<<"\n***************************************"<<endl;
+        cout<<"\n\t* Menu de Opciones. *"<<endl;
+        cout<<"\n***************************************"<<endl;
+        cout<<"\n\t1. Agregar Empleados"<<endl;
+        cout<<"\t2. Buscar Empleados"<<endl;
+        cout<<"\t3. Mostrar Lista de Empleados"<<endl;
+        cout<<"\t4. Salir "<<endl;
+        cout<<"\n***************************************"<<endl;
+        cout<<"\tDigite una Opcion: ";
+        cin>>opc;
+
+        switch (opc)
+        {
+            case 1:
+                tr = pedirdatos();
+                lis.Insertar(tr);
+                 break;
+            case 2:
+                cout << "Digita el codigo ";
+                cin >> codigo;
+                lis.mostrarBusqueda(codigo);
+
+                 break;
+            case 3:
+                lis.Mostrar();
+                 break;
+
+            case 4:
+
+                   break;
+
+            default:
+                    cout<<"ERROR"<<endl;
+                    break;
+
+       }
+       system("pause");
+    }while(opc!=4);
+    return 0;
 }
 
 
-fecha pedir(){
-	fecha fe;
-	int d, m, a;
-	cout << "\nIngrese feha de nacimiento dd/mm/aa \n\n";
-	cout << "Dia: ";
-	cin >> d;
-	cout << "Mes: ";
-	cin >> m;
-	cout << "Anyo: ";
-	cin >> a;
-	fe = fecha(d,m,a);
-	
-	return fe;
-}
 
-estudiantes pedirdato(){
-	estudiantes est;
-	char Nombre[TAM],Apellido[TAM];
-	cout << "\nIngrese su nombre: ";
-	cin >> Nombre;
-	cout << "\nIngrese su apellido: ";
-	cin >> Apellido;
-	cout << "\nIngrese Nota1: ";
-	cin >> Nota1;
-	cout << "\nIngrese Nota2: ";
-	cin >>Nota2;
-	cout << "\nIngrese Nota3: ";
-	cin >> Nota3;
-	est = estudiantes(Nombre,Apellido,s);
-	
-	return est;
+Trabajador pedirdatos(){
+        char nombre[15], apellido[15];
+        float sueldo;
+        int dia,mes,anyo;
+
+         cout<<"Digite el nombre: ";
+         cin>>nombre;
+         cout<<"\n";
+         cout<<"Digite el apellido: ";
+         cin>>apellido;
+         cout << "Digite Su Salario : ";
+         cin >> sueldo;
+
+         cout<<"\nSu Fecha de Nacimiento: \n";
+
+         cout << "Digite el dia de Nacimento : ";
+         cin>>dia;
+         cout << "Digite el mes de Nacimento : ";
+         cin>>mes;
+         cout << "Digite el an?o de Nacimento : ";
+         cin>>anyo;
+
+         cout<<"\n";
+         Fecha fec(dia,mes,anyo);
+         Trabajador tr = Trabajador(nombre,apellido,fec,sueldo);
+         return tr;
 }
-	

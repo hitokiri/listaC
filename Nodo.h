@@ -1,24 +1,20 @@
-#ifndef NODO_H
-#define __NODO_H
+#ifndef NODO_H_INCLUDED
+#define NODO_H_INCLUDED
 #include <stdlib.h>
-#include "estudiantes.h"
+#include "Trabajador.h"
+#include "Fecha.h"
 
 
 class Nodo{
 private:
-	estudiantes Valor;
-	Nodo *Siguiente;
+    Trabajador Valor;
+    Nodo *Siguiente;
 public:
-	Nodo(estudiantes est=0, Nodo* sig=NULL){
-		this->Valor=est;
-		this->Siguiente = sig;
-	}
-	friend class Lista;
-	//int getValor(){
-		//return this->Valor;
+    Nodo(Trabajador t = 0, Nodo* sig=NULL){
+    this->Valor = t;
+    this->Siguiente = sig;
+    }
+    friend class Lista;
+};typedef Nodo *pNodo;
 
-};typedef Nodo *pnodo;
-
-#endif
-
-
+#endif // NODO_H_INCLUDED
