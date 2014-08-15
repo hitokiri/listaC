@@ -44,7 +44,7 @@ public:
     }
 
 
-void Insertar(Trabajador t=0)
+void Insertar(Estudiante t=0)
 {
     if(ListaVacia())
     {
@@ -57,7 +57,7 @@ void Insertar(Trabajador t=0)
 
 
 
-pNodo buscarTrabajadorCodigo(char *puntero)
+pNodo buscarEstudianteCodigo(char *puntero)
 {
     pNodo aux=primero;
     while(aux!=NULL)
@@ -73,11 +73,11 @@ pNodo buscarTrabajadorCodigo(char *puntero)
 
 void mostrarBusqueda(char *punt)
 {
-    pNodo aux = buscarTrabajadorCodigo(punt);
+    pNodo aux = buscarEstudianteCodigo(punt);
     aux->Valor.MostrarNombres();
 }
 
-pNodo buscarTrabajador(Trabajador t=0)
+pNodo buscarEstudiante(Estudiante t=0)
 {
     pNodo aux=primero;
     while(aux!=NULL)
@@ -129,14 +129,14 @@ void insertar(Trabajador t=0,int cod=0){
 */
 
 
-void InsertarDespues(Trabajador t=0,pNodo posi=NULL){
+void InsertarDespues(Estudiante t=0,pNodo posi=NULL){
     pNodo nuevo;
     Primero();
     nuevo = new Nodo(t,actual);
     primero = nuevo;
 }
 
-void insertarFinal(Trabajador t=0){
+void insertarFinal(Estudiante t=0){
     pNodo nuevo;
     Ultimo();
     nuevo = new Nodo(t);
@@ -157,10 +157,10 @@ void EliminarFinal(){
     delete aux;
 }
 
-void Eliminar(Trabajador tr){
+void Eliminar(Estudiante tr){
     pNodo temp,aux; // creo los nodos de desplazamiento
     this->actual = this->primero; //mando mi direccion del nodo primero a la de actual
-    temp = buscarTrabajador(tr); //me retorna una direccion donde econtro el valor
+    temp = buscarEstudiante(tr); //me retorna una direccion donde econtro el valor
     if(temp==NULL)
     {
         cout << "No se encontro Dato a eliminar";
@@ -208,9 +208,10 @@ void Mostrar(){
                 cout << "Nombre \tApellido\n";
         aux->Valor.MostrarNombres();
         aux->Valor.getCodigo();
-        cout << "\nEl sueldo Devengado " << aux->Valor.getsueldo();
-        cout << "\nDescuentos   es  : "<< aux->Valor.getIsr() + aux->Valor.getAfp() + aux->Valor.getIsss();
-        cout << "\nEl Total a pagar es " <<aux->Valor.getTotalPagar();
+        cout << "\nLa primera nota es : " << aux->Valor.getn1();
+        cout << "\nLa segunda nota es  : " << aux->Valor.getn2();//<< aux->Valor.getIsr() + aux->Valor.getAfp() + aux->Valor.getIsss();
+		cout << "\nLa tercera nota es : " << aux->Valor.getn3(); //<< aux->Valor.getsueldo();
+		cout << "\nEl nota Promedio es " << aux->Valor.getPromedio();//<<aux->Valor.getTotalPagar();
 
         cout << "\nFecha de Nacimiento \n";
         aux->Valor.MostrarFechaNac();

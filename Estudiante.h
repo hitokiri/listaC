@@ -1,45 +1,50 @@
 #ifndef ESTUDIANTE_H_INCLUDED
 #define ESTUDIANTE_H_INCLUDED
 #include <cstring>
-using namespace std;
+#include "Persona.h"
 
-class Estudiante
+
+class Estudiante:public Personas
 {
 private:
-    char Nombre[10];
-    char Apellido[10];
-    float Nota1;
-    float Nota2;
-    float Nota3;
-    float Promedio;
+	char Nombre[10];
+	char Apellido[10];
+	float Nota1;
+	float Nota2;
+	float Nota3;
+	float Promedio;
+
 public:
-    Estudiante(char N[]="", char A[]="", float n1=0, float n2=0, float n3=0)
+	Estudiante(char n[]="", char a[]="",Fecha f=0, float n1=0, float n2=0, float n3=0):Personas(n,a,f)
+	{
+		strcpy(this->Nombre,n);
+		strcpy(this->Apellido,a);
+		this->Nota1 = n1;
+		this->Nota2 = n2;
+		this->Nota3 = n3;
+	}
+
+    void MostrarNombresApellidos()
     {
-        strcpy(this->Nombre,N);
-        strcpy(this->Apellido,A);
-        this->Nota1 = n1;
-        this->Nota2 = n2;
-        this->Nota3 = n2;
+        Personas::MotrarNombresMinusculas();
     }
 
-void getnombre()
-{
-    cout << "\n" << this->Nombre << "\n";
-}
-
-void getapellido()
-{
-    cout << this->Apellido << "\n";
-}
-
-double getPromedio()
-    {
-
-        this->Promedio=(this->Nota1+this->Nota2+this->Nota3)/3.0;
-        return this->Promedio ;
-    }
-
+	double getPromedio()
+	{		
+		this->Promedio=(this->Nota1+this->Nota2+this->Nota3)/3.0;
+		return this->Promedio ;
+	}
+	float getn1(){
+		return this->Nota1;
+	}
+	float getn2(){
+		return this->Nota2;
+	}
+	float getn3(){
+		return this->Nota3;
+	}
+	
 };
 
 
-#endif // ESTUDIANTE_H_INCLUDED
+#endif // TRABAJADOR_H_INCLUDED

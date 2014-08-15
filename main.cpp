@@ -4,11 +4,11 @@
 using namespace std;
 #include "Fecha.h"
 #include "Persona.h"
-#include "Trabajador.h"
+#include "Estudiante.h"
 #include "Lista.h"
 
 
-Trabajador pedirdatos();
+Estudiante pedirdatos();
 int main()
 {
 
@@ -20,7 +20,7 @@ int main()
     //f.MostrarFecha();
 
     */system("pause");
-    Trabajador tr;
+    Estudiante tr;
     char *codigo;
     int opc=0;
     Lista lis;
@@ -29,9 +29,9 @@ int main()
         cout<<"\n***************************************"<<endl;
         cout<<"\n\t* Menu de Opciones. *"<<endl;
         cout<<"\n***************************************"<<endl;
-        cout<<"\n\t1. Agregar Empleados"<<endl;
-        cout<<"\t2. Buscar Empleados"<<endl;
-        cout<<"\t3. Mostrar Lista de Empleados"<<endl;
+        cout<<"\n\t1. Agregar Estudiante"<<endl;
+        cout<<"\t2. Buscar Estudiante"<<endl;
+        cout<<"\t3. Mostrar Lista de Estudiante"<<endl;
         cout<<"\t4. Salir "<<endl;
         cout<<"\n***************************************"<<endl;
         cout<<"\tDigite una Opcion: ";
@@ -69,18 +69,16 @@ int main()
 
 
 
-Trabajador pedirdatos(){
+Estudiante pedirdatos(){
         char nombre[15], apellido[15];
         float sueldo;
         int dia,mes,anyo;
-
+		float n1,n2,n3;
          cout<<"Digite el nombre: ";
          cin>>nombre;
          cout<<"\n";
          cout<<"Digite el apellido: ";
          cin>>apellido;
-         cout << "Digite Su Salario : ";
-         cin >> sueldo;
 
          cout<<"\nSu Fecha de Nacimiento: \n";
 
@@ -90,9 +88,14 @@ Trabajador pedirdatos(){
          cin>>mes;
          cout << "Digite el an?o de Nacimento : ";
          cin>>anyo;
-
+		 cout << "Digite la primera nota : ";
+		 cin>>n1;
+		 cout << "Digite la segunda nota : ";
+		 cin>>n2;
+		 cout << "Digite la tercera nota : ";
+		 cin>>n3;
          cout<<"\n";
          Fecha fec(dia,mes,anyo);
-         Trabajador tr = Trabajador(nombre,apellido,fec,sueldo);
+         Estudiante tr = Estudiante(nombre, apellido, fec, n1, n2, n3);
          return tr;
 }

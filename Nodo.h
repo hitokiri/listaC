@@ -1,16 +1,16 @@
 #ifndef NODO_H_INCLUDED
 #define NODO_H_INCLUDED
 #include <stdlib.h>
-#include "Trabajador.h"
+#include "Estudiante.h"
 #include "Fecha.h"
 
 
 class Nodo{
 private:
-    Trabajador Valor;
+    Estudiante Valor;
     Nodo *Siguiente;
 public:
-    Nodo(Trabajador t = 0, Nodo* sig=NULL){
+    Nodo(Estudiante t = 0, Nodo* sig=NULL){
     this->Valor = t;
     this->Siguiente = sig;
     }
